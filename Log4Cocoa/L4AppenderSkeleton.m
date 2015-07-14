@@ -35,6 +35,8 @@
     self = [super init];
     
     if ( self != nil ) {
+		self.name = @"";
+		
         // Configure the layout
         if ( [initProperties stringForKey:@"layout"] != nil ) {
             L4Properties *layoutProperties = [initProperties subsetForPrefix:@"layout."];

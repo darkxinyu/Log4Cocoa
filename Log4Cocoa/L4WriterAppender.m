@@ -134,7 +134,7 @@ static NSData *lineBreakChar;
                 // TODO ### -- NEED UNIX EXPERT IS THIS THE BEST WAY ??
                 // TODO - ### - NEED TO WORK ON ENCODING ISSUES (& THEN LATER LOCALIZATION)
                 //
-                [fileHandle writeData:[theString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]];
+                [fileHandle writeData:[theString dataUsingEncoding:self.encoding allowLossyConversion:YES]];
                 [fileHandle writeData:lineBreakChar];
             }
 		}

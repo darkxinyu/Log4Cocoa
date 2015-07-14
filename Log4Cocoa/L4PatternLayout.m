@@ -420,7 +420,10 @@ NSString* const L4InvalidBraceClauseException = @"L4InvalidBraceClauseException"
 								// if there's anything between the braces, get string description of the logging event's 
 								// timestamp with the format we just found
 								if ([scanner scanUpToString:@"}" intoString:&tempString2]) {
-									tempString = [[logEvent timestamp] descriptionWithCalendarFormat:tempString2];
+									// Format Date
+									NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+									dateFormatter.dateFormat = tempString2;
+									tempString = [dateFormatter stringFromDate:logEvent.timestamp];
 									
 									// skip closing brace
 									charsToSkip++;
@@ -471,6 +474,14 @@ NSString* const L4InvalidBraceClauseException = @"L4InvalidBraceClauseException"
 							charsToSkip++;
 							tempString = @"\n";
 							break;
+							
+						case 'N':
+							// skip th 'N'
+							charsToSkip++;
+							if (logEvent.logger != nil) {
+								tempString = [[logEvent logger] name] ?: @"";
+							}
+							break;
 						
 						case 'p':
 							// skip the 'p'
@@ -486,11 +497,33 @@ NSString* const L4InvalidBraceClauseException = @"L4InvalidBraceClauseException"
 						
 						case 't':
 							// skip the 't'
+							/*
 							charsToSkip++;
 							tempString = [[NSThread currentThread] name];
 							if (tempString == nil) {
 								tempString = [NSString stringWithFormat:@"%p", [NSThread currentThread]];
 							}
+							//*/
+							
+							charsToSkip++;
+							tempString = [[NSThread currentThread] name];
+							if (tempString == nil || tempString.length < 1) {
+								// getting the thread id as in xcode debug session if not named
+								NSString *threadString = [NSString stringWithFormat:@"%@", [NSThread currentThread]];
+								NSArray *halfComponents = [threadString componentsSeparatedByString:@"{"];
+								if ([halfComponents count] > 1) {
+									NSString *halfString = [halfComponents objectAtIndex:1];
+									NSArray *quarterComponent = [halfString componentsSeparatedByString:@","];
+									if ([quarterComponent count] > 1) {
+										NSString *quarterString = [quarterComponent objectAtIndex:0];
+										NSArray *keyValue = [quarterString componentsSeparatedByString:@" = "];
+										if ([keyValue count] > 1) {
+											tempString = [NSString stringWithFormat:@"%@", [keyValue objectAtIndex:1]];
+										}
+									}
+								}
+							}
+							
 							break;
 							
 						case '%':
