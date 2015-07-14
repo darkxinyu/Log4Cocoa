@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/darkxinyu/Log4Cocoa"
   s.license      = 'BSD'
   s.author       = { "StuFF mc" => "mc@stuffmc.com", "Endika Gutiérrez Salas" => "", "Timothy Reaves" => "", "Bob Frank" => "", "Michael James" => ", "darkxinyu" => "darkxinyu@gmail.com"  }
-  s.source       = { :git => "https://github.com/darkxinyu/Log4Cocoa.git", :branch => "0.1.1" }
+  s.source       = { :git => "https://github.com/darkxinyu/Log4Cocoa.git" }
   s.source_files = 'Log4Cocoa', 'Log4Cocoa/**/*.{h,m}'
   s.requires_arc = false
 end
