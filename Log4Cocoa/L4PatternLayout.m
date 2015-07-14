@@ -474,14 +474,6 @@ NSString* const L4InvalidBraceClauseException = @"L4InvalidBraceClauseException"
 							charsToSkip++;
 							tempString = @"\n";
 							break;
-							
-						case 'N':
-							// skip th 'N'
-							charsToSkip++;
-							if (logEvent.logger != nil) {
-								tempString = [[logEvent logger] name] ?: @"";
-							}
-							break;
 						
 						case 'p':
 							// skip the 'p'

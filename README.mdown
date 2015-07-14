@@ -3,7 +3,6 @@
 * Fixed encoding issue.
 * Fixed date formatting issue on modern ios.
 * Added the ability of layout pattern token 't' to output the thread id as in xcode debug session if not named.
-* Added layout pattern token 'N' to output the name of the current logger.
 
 # Log4Cocoa Usage (May 4, 2011)
 Read COPYRIGHT

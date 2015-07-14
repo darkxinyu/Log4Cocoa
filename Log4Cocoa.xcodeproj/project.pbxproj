@@ -430,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/Log4Cocoa.dst;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Log4Cocoa/Log4Cocoa-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -442,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/Log4Cocoa.dst;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Log4Cocoa/Log4Cocoa-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
