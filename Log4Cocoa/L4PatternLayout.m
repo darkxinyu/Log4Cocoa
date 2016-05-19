@@ -424,6 +424,7 @@ NSString* const L4InvalidBraceClauseException = @"L4InvalidBraceClauseException"
 									NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 									dateFormatter.dateFormat = tempString2;
 									tempString = [dateFormatter stringFromDate:logEvent.timestamp];
+                                    [dateFormatter release];
 									
 									// skip closing brace
 									charsToSkip++;

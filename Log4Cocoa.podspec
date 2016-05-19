@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Log4Cocoa"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "Log4j port for iOS and Mac OS X."
   s.homepage     = "https://github.com/darkxinyu/Log4Cocoa"
   s.license      = 'BSD'
